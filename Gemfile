@@ -5,8 +5,17 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in raix-rails.gemspec
 gemspec
 
-gem "rake", "~> 13.0"
+gem "activesupport", ">= 6.0"
+gem "faraday-retry"
+gem "open_router", "~> 0.3"
 
-gem "rspec", "~> 3.0"
-
-gem "rubocop", "~> 1.21"
+group :development do
+  gem "dotenv", ">= 2"
+  gem "pry", ">= 0.14"
+  gem "rake", "~> 13.0"
+  gem "rspec", "~> 3.0"
+  gem "rubocop", "~> 1.21"
+  gem "solargraph-rails", "~> 0.2.0.pre"
+  gem "sorbet"
+  gem "tapioca", require: false
+end
