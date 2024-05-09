@@ -41,7 +41,7 @@ module Raix
     # @param params [Hash] The parameters for chat completion.
     # @option params [Boolean] :raw (false) Whether to return the raw response or dig the text content.
     # @return [String|Hash] The completed chat response.
-    def chat_completion(params: {}, json: false, raw: false, openai: false)
+    def chat_completion(params: {}, json: false, raw: false, openai: false) # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
       cc_messages = transcript.flatten.compact.map { |msg| transform_message_format(msg) }
       raise "Can't complete an empty transcript" if cc_messages.blank?
 
@@ -76,7 +76,7 @@ module Raix
         params[:stream] ||= stream.presence
 
         OPEN_AI_CLIENT.chat(parameters: params.compact.merge(model: openai, messages: cc_messages)).then do |response|
-          return if stream && response.blank?
+          return if stream && response.blank? # rubocop:disable Lint/NonLocalExitFromIterator
 
           if (function = response.dig("choices", 0, "message", "tool_calls", 0, "function"))
             @current_function = function["name"]
@@ -96,7 +96,7 @@ module Raix
         end
       else
         OpenRouter::Client.new.complete(cc_messages, model:, extras: params.compact, stream:).then do |response|
-          return if stream && response.blank?
+          return if stream && response.blank? # rubocop:disable Lint/NonLocalExitFromIterator
 
           if (function = response.dig("choices", 0, "message", "tool_calls", 0, "function"))
             @current_function = function["name"]

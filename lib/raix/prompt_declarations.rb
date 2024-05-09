@@ -20,7 +20,7 @@ module Raix
       def prompt(text:, system: nil, success: nil, params: {}) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         name = Digest::SHA256.hexdigest(text.inspect)[0..7]
         prompts << begin
-          open_struct = OpenStruct.new({ name:, system:, text:, success:, params: })
+          OpenStruct.new({ name:, system:, text:, success:, params: })
         end
 
         define_method(name) do |response|
