@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Ruby AI eXtensions for Rails"
   spec.homepage = "https://github.com/OlympiaAI/raix-rails"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.2.1"
+  spec.required_ruby_version = ">= 3.2.2"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/OlympiaAI/raix-rails"
