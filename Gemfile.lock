@@ -57,6 +57,8 @@ GEM
     netrc (0.11.0)
     nokogiri (1.16.4-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.4-x86_64-linux)
+      racc (~> 1.4)
     open_router (0.3.0)
       activesupport (>= 6.0)
       dotenv (>= 2)
@@ -131,6 +133,7 @@ GEM
       sorbet-static (= 0.5.11346)
     sorbet-runtime (0.5.11346)
     sorbet-static (0.5.11346-universal-darwin)
+    sorbet-static (0.5.11346-x86_64-linux)
     sorbet-static-and-runtime (0.5.11346)
       sorbet (= 0.5.11346)
       sorbet-runtime (= 0.5.11346)
@@ -161,6 +164,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   activesupport (>= 6.0)
