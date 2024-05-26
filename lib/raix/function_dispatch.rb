@@ -41,7 +41,7 @@ module FunctionDispatch
     # @param description [String] An optional description of the function.
     # @param parameters [Hash] The parameters that the function accepts.
     # @param block [Proc] The block of code to execute when the function is called.
-    def function(name, description = nil, **parameters, &block) # rubocop:disable Metrics/AbcSize
+    def function(name, description = nil, **parameters, &block)
       @functions ||= []
       @functions << begin
         { type: "function", function: { name:, parameters: { type: "object", properties: {} } } }.tap do |definition|

@@ -17,7 +17,7 @@ module Raix
       # @param text [Proc] A lambda that generates the prompt text. (Required)
       # @param success [Proc] The block of code to execute when the prompt is answered.
       # @param parameters [Hash] Additional parameters for the completion API call
-      def prompt(text:, system: nil, success: nil, params: {}) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      def prompt(text:, system: nil, success: nil, params: {})
         name = Digest::SHA256.hexdigest(text.inspect)[0..7]
         prompts << begin
           OpenStruct.new({ name:, system:, text:, success:, params: })
@@ -67,7 +67,7 @@ module Raix
     #
     # @raise [RuntimeError] If no prompts are defined.
     #
-    def chat_completion(params: {}, raw: false) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength,Metrics/CyclomaticComplexity
+    def chat_completion(params: {}, raw: false)
       raise "No prompts defined" unless self.class.prompts.present?
 
       current_prompts = self.class.prompts.clone
