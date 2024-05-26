@@ -16,8 +16,11 @@ module Raix
     # The max_tokens option determines the maximum number of tokens to generate.
     attr_accessor :max_tokens
 
-    # The open_router_client option determines the client to use for communication.
-    attr_accessor :open_router_client
+    # The openrouter_client option determines the default client to use for communicatio.
+    attr_accessor :openrouter_client
+
+    # The openai_client option determines the OpenAI client to use for communication.
+    attr_accessor :openai_client
 
     DEFAULT_MAX_TOKENS = 1000
     DEFAULT_TEMPERATURE = 0.0

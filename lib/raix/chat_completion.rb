@@ -3,6 +3,7 @@
 require "active_support/concern"
 require "active_support/core_ext/object/blank"
 require "open_router"
+require "openai"
 
 module Raix
   # The `ChatCompletion`` module is a Rails concern that provides a way to interact
@@ -16,38 +17,28 @@ module Raix
   module ChatCompletion
     extend ActiveSupport::Concern
 
-    attr_accessor :frequency_penalty, :logit_bias, :logprobs, :min_p, :presence_penalty, :repetition_penalty,
+    attr_accessor :frequency_penalty, :logit_bias, :logprobs, :loop, :min_p, :presence_penalty, :repetition_penalty,
                   :response_format, :stream, :temperature, :max_tokens, :seed, :stop, :top_a, :top_k, :top_logprobs,
                   :top_p, :tools, :tool_choice, :provider
-
-    # This method returns the transcript array.
-    # Manually add your messages to it in the following abbreviated format
-    # before calling `chat_completion`.
-    #
-    # { system: "You are a pumpkin" },
-    # { user: "Hey what time is it?" },
-    # { assistant: "Sorry, pumpkins do not wear watches" }
-    #
-    # to add a function result use the following format:
-    # { function: result, name: 'fancy_pants_function' }
-    #
-    # @return [Array] The transcript array.
-    def transcript
-      @transcript ||= []
-    end
 
     # This method performs chat completion based on the provided transcript and parameters.
     #
     # @param params [Hash] The parameters for chat completion.
+    # @option loop [Boolean] :loop (false) Whether to loop the chat completion after function calls.
+    # @option params [Boolean] :json (false) Whether to return the parse the response as a JSON object.
+    # @option params [Boolean] :openai (false) Whether to use OpenAI's API instead of OpenRouter's.
     # @option params [Boolean] :raw (false) Whether to return the raw response or dig the text content.
     # @return [String|Hash] The completed chat response.
-    def chat_completion(params: {}, json: false, raw: false, openai: false) # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
-      cc_messages = transcript.flatten.compact.map { |msg| transform_message_format(msg) }
-      raise "Can't complete an empty transcript" if cc_messages.blank?
+    def chat_completion(params: {}, loop: false, json: false, raw: false, openai: false)
+      messages = transcript.flatten.compact.map { |msg| transform_message_format(msg) }
+      raise "Can't complete an empty transcript" if messages.blank?
+
+      # used by FunctionDispatch
+      self.loop = loop
 
       # set params to default values if not provided
-      params[:temperature] ||= temperature.presence || 0.0
-      params[:max_tokens] ||= max_tokens.presence || 500
+      params[:temperature] ||= temperature.presence || Raix.configuration.temperature
+      params[:max_tokens] ||= max_tokens.presence || Raix.configuration.max_tokens
       params[:stop] ||= stop.presence
       params[:frequency_penalty] ||= frequency_penalty.presence
       params[:logit_bias] ||= logit_bias.presence
@@ -72,49 +63,70 @@ module Raix
         params[:response_format][:type] = "json_object"
       end
 
-      if openai
-        params[:stream] ||= stream.presence
+      begin
+        response = if openai
+                     openai_request(params:, model: openai,
+                                    messages:)
+                   else
+                     openrouter_request(
+                       params:, model:, messages:
+                     )
+                   end
+        retry_count = 0
+        content = nil
 
-        OPEN_AI_CLIENT.chat(parameters: params.compact.merge(model: openai, messages: cc_messages)).then do |response|
-          return if stream && response.blank? # rubocop:disable Lint/NonLocalExitFromIterator
+        # no need for additional processing if streaming
+        return if stream && response.blank?
 
-          if (function = response.dig("choices", 0, "message", "tool_calls", 0, "function"))
-            @current_function = function["name"]
-            return send(function["name"], JSON.parse(function["arguments"]).with_indifferent_access)
-          end
+        # tuck the full response into a thread local in case needed
+        Thread.current[:chat_completion_response] = response.with_indifferent_access
 
-          response.tap do |res|
-            content = res.dig("choices", 0, "message", "content")
-            if json
-              raise "Cannot parse blank JSON return: #{res.to_json}" if content.blank?
+        # TODO: add a standardized callback hook for usage events
+        # broadcast(:usage_event, usage_subject, self.class.name.to_s, response, premium?)
 
-              return JSON.parse(content)
-            end
-
-            return content unless raw
-          end
+        # TODO: handle parallel tool calls
+        if (function = response.dig("choices", 0, "message", "tool_calls", 0, "function"))
+          @current_function = function["name"]
+          # dispatch the called function
+          arguments = JSON.parse(function["arguments"].presence || "{}")
+          arguments[:bot_message] = bot_message if respond_to?(:bot_message)
+          return send(function["name"], arguments.with_indifferent_access)
         end
-      else
-        OpenRouter::Client.new.complete(cc_messages, model:, extras: params.compact, stream:).then do |response|
-          return if stream && response.blank? # rubocop:disable Lint/NonLocalExitFromIterator
 
-          if (function = response.dig("choices", 0, "message", "tool_calls", 0, "function"))
-            @current_function = function["name"]
-            return send(function["name"], JSON.parse(function["arguments"]).with_indifferent_access)
+        response.tap do |res|
+          content = res.dig("choices", 0, "message", "content")
+          if json
+            content = content.squish
+            return JSON.parse(content)
           end
 
-          response.tap do |res|
-            content = res.dig("choices", 0, "message", "content")
-            if json
-              raise "Cannot parse blank JSON return: #{res.to_json}" if content.blank?
-
-              return JSON.parse(content)
-            end
-
-            return content unless raw
-          end
+          return content unless raw
         end
+      rescue JSON::ParserError => e
+        if e.message.include?("not a valid") # blank JSON
+          puts "Retrying blank JSON response... (#{retry_count} attempts) #{e.message}"
+          retry_count += 1
+          sleep 1 * retry_count # backoff
+          retry if retry_count < 3
+
+          raise e # just fail if we can't get content after 3 attempts
+        end
+
+        # attempt to fix the JSON
+        JsonFixer.new.call(content, e.message)
+      rescue Faraday::BadRequestError => e
+        # make sure we see the actual error message on console or Honeybadger
+        if Rails.env.local?
+          puts "Chat completion failed!!!!!!!!!!!!!!!!: #{e.response[:body]}"
+        else
+          Honeybadger.notify(e, context: { model:, messages:, response: e.response[:body] })
+        end
+        raise e
       end
+    end
+
+    def model
+      "openai/gpt-4o"
     end
 
     # This method continues the chat with the provided result.
@@ -125,10 +137,44 @@ module Raix
       chat_completion
     end
 
+    # This method returns the transcript array.
+    # Manually add your messages to it in the following abbreviated format
+    # before calling `chat_completion`.
+    #
+    # { system: "You are a pumpkin" },
+    # { user: "Hey what time is it?" },
+    # { assistant: "Sorry, pumpkins do not wear watches" }
+    #
+    # to add a function result use the following format:
+    # { function: result, name: 'fancy_pants_function' }
+    #
+    # @return [Array] The transcript array.
+    def transcript
+      @transcript ||= []
+    end
+
     private
 
-    def model
-      "openai/gpt-4-turbo"
+    def openai_request(params:, model:, messages:)
+      params[:stream] ||= stream.presence
+      Raix.configuration.openai_client.chat(parameters: params.compact.merge(model:, messages:))
+    end
+
+    def openrouter_request(params:, model:, messages:)
+      retry_count = 0
+
+      begin
+        Raix.configuration.openrouter_client.complete(messages, model:, extras: params.compact, stream:)
+      rescue OpenRouter::ServerError => e
+        if e.message.include?("retry")
+          puts "Retrying OpenRouter request... (#{retry_count} attempts) #{e.message}"
+          retry_count += 1
+          sleep 1 * retry_count # backoff
+          retry if retry_count < 5
+        end
+
+        raise e
+      end
     end
 
     def transform_message_format(message)

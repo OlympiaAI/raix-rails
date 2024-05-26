@@ -16,7 +16,11 @@ end
 RSpec.describe MeaningOfLife do
   subject { described_class.new }
 
-  it "does a completion" do
-    expect(subject.chat_completion).to include("The meaning of life is a question")
+  it "does a completion with OpenAI" do
+    expect(subject.chat_completion(openai: "gpt-4o")).to include("meaning of life is")
+  end
+
+  it "does a completion with OpenRouter" do
+    expect(subject.chat_completion).to include("meaning of life is")
   end
 end

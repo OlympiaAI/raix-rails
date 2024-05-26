@@ -26,7 +26,13 @@ OpenRouter.configure do |config|
 end
 
 Raix.configure do |config|
-  config.open_router_client = OpenRouter::Client.new(access_token: ENV["ACCESS_TOKEN"])
+  config.openrouter_client = OpenRouter::Client.new(access_token: ENV["OR_ACCESS_TOKEN"])
+  config.openai_client = OpenAI::Client.new(access_token: ENV["OAI_ACCESS_TOKEN"]) do |f|
+    f.request :retry, retry_options
+    f.response :logger, ::Logger.new($stdout), { headers: true, bodies: true, errors: true } do |logger|
+      logger.filter(/(Bearer) (\S+)/, '\1[REDACTED]')
+    end
+  end
 end
 
 RSpec.configure do |config|

@@ -41,7 +41,7 @@ module FunctionDispatch
     # @param description [String] An optional description of the function.
     # @param parameters [Hash] The parameters that the function accepts.
     # @param block [Proc] The block of code to execute when the function is called.
-    def function(name, description: nil, **parameters, &block) # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
+    def function(name, description = nil, **parameters, &block) # rubocop:disable Metrics/AbcSize
       @functions ||= []
       @functions << begin
         { type: "function", function: { name:, parameters: { type: "object", properties: {} } } }.tap do |definition|
@@ -53,15 +53,49 @@ module FunctionDispatch
       end
 
       define_method(name) do |arguments|
-        transcript << { function: { name:, arguments: } }
-        instance_exec(arguments, &block).tap do |result|
-          transcript << { assistant: result }
+        id = SecureRandom.uuid.first(23)
+        transcript << {
+          role: "assistant",
+          content: nil,
+          tool_calls: [
+            {
+              id:,
+              type: "function",
+              function: {
+                name:,
+                arguments: arguments.to_json
+              }
+            }
+          ]
+        }
+        instance_exec(arguments, &block).tap do |content|
+          transcript << {
+            role: "tool",
+            tool_call_id: id,
+            name:,
+            content: content.to_s
+          }
+          # TODO: add on_error handler as optional parameter to function
         end
+
+        chat_completion(**chat_completion_args) if loop
       end
     end
+  end
 
-    def tools
-      self.class.functions
-    end
+  included do
+    attr_accessor :chat_completion_args
+  end
+
+  def chat_completion(**chat_completion_args)
+    raise "No functions defined" if self.class.functions.blank?
+
+    self.chat_completion_args = chat_completion_args
+
+    super
+  end
+
+  def tools
+    self.class.functions.map { |function| { type: "function", function: } }
   end
 end
