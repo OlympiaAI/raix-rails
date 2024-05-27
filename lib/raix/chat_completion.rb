@@ -124,14 +124,6 @@ module Raix
       end
     end
 
-    # This method continues the chat with the provided result.
-    #
-    # @param result [Object] The result of the previous chat completion.
-    def continue_with(result)
-      @transcript << { name: @current_function, result: }
-      chat_completion
-    end
-
     # This method returns the transcript array.
     # Manually add your messages to it in the following abbreviated format
     # before calling `chat_completion`.
