@@ -16,6 +16,10 @@ module Raix
     # The max_tokens option determines the maximum number of tokens to generate.
     attr_accessor :max_tokens
 
+    # The model option determines the model to use for text generation. This option
+    # is normally set in each class that includes the ChatCompletion module.
+    attr_accessor :model
+
     # The openrouter_client option determines the default client to use for communicatio.
     attr_accessor :openrouter_client
 
@@ -23,12 +27,14 @@ module Raix
     attr_accessor :openai_client
 
     DEFAULT_MAX_TOKENS = 1000
+    DEFAULT_MODEL = "meta-llama/llama-3-8b-instruct:free"
     DEFAULT_TEMPERATURE = 0.0
 
     # Initializes a new instance of the Configuration class with default values.
     def initialize
-      @temperature = DEFAULT_TEMPERATURE
-      @max_tokens = DEFAULT_MAX_TOKENS
+      self.temperature = DEFAULT_TEMPERATURE
+      self.max_tokens = DEFAULT_MAX_TOKENS
+      self.model = DEFAULT_MODEL
     end
   end
 

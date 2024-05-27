@@ -17,9 +17,9 @@ module Raix
   module ChatCompletion
     extend ActiveSupport::Concern
 
-    attr_accessor :frequency_penalty, :logit_bias, :logprobs, :loop, :min_p, :presence_penalty, :repetition_penalty,
-                  :response_format, :stream, :temperature, :max_tokens, :seed, :stop, :top_a, :top_k, :top_logprobs,
-                  :top_p, :tools, :tool_choice, :provider
+    attr_accessor :frequency_penalty, :logit_bias, :logprobs, :loop, :min_p, :model, :presence_penalty,
+                  :repetition_penalty, :response_format, :stream, :temperature, :max_tokens, :seed, :stop, :top_a,
+                  :top_k, :top_logprobs, :top_p, :tools, :tool_choice, :provider
 
     # This method performs chat completion based on the provided transcript and parameters.
     #
@@ -37,24 +37,24 @@ module Raix
       self.loop = loop
 
       # set params to default values if not provided
-      params[:temperature] ||= temperature.presence || Raix.configuration.temperature
-      params[:max_tokens] ||= max_tokens.presence || Raix.configuration.max_tokens
-      params[:stop] ||= stop.presence
       params[:frequency_penalty] ||= frequency_penalty.presence
       params[:logit_bias] ||= logit_bias.presence
       params[:logprobs] ||= logprobs.presence
+      params[:max_tokens] ||= max_tokens.presence || Raix.configuration.max_tokens
       params[:min_p] ||= min_p.presence
       params[:presence_penalty] ||= presence_penalty.presence
-      params[:repetition_penalty] ||= repetition_penalty.presence
       params[:provider] ||= provider.presence
+      params[:repetition_penalty] ||= repetition_penalty.presence
       params[:response_format] ||= response_format.presence
       params[:seed] ||= seed.presence
+      params[:stop] ||= stop.presence
+      params[:temperature] ||= temperature.presence || Raix.configuration.temperature
+      params[:tool_choice] ||= tool_choice.presence
+      params[:tools] ||= tools.presence
       params[:top_a] ||= top_a.presence
       params[:top_k] ||= top_k.presence
       params[:top_logprobs] ||= top_logprobs.presence
       params[:top_p] ||= top_p.presence
-      params[:tools] ||= tools.presence
-      params[:tool_choice] ||= tool_choice.presence
 
       if json
         params[:provider] ||= {}
@@ -62,6 +62,9 @@ module Raix
         params[:response_format] ||= {}
         params[:response_format][:type] = "json_object"
       end
+
+      # set the model to the default if not provided
+      self.model ||= Raix.configuration.model
 
       begin
         response = if openai
@@ -116,17 +119,9 @@ module Raix
         JsonFixer.new.call(content, e.message)
       rescue Faraday::BadRequestError => e
         # make sure we see the actual error message on console or Honeybadger
-        if Rails.env.local?
-          puts "Chat completion failed!!!!!!!!!!!!!!!!: #{e.response[:body]}"
-        else
-          Honeybadger.notify(e, context: { model:, messages:, response: e.response[:body] })
-        end
+        puts "Chat completion failed!!!!!!!!!!!!!!!!: #{e.response[:body]}"
         raise e
       end
-    end
-
-    def model
-      "openai/gpt-4o"
     end
 
     # This method continues the chat with the provided result.
@@ -178,9 +173,10 @@ module Raix
     end
 
     def transform_message_format(message)
+      return message if message[:role].present?
+
       if message[:function].present?
-        { role: "assistant", name: message.dig(:function, :name),
-          content: message.dig(:function, :arguments).to_json }
+        { role: "assistant", name: message.dig(:function, :name), content: message.dig(:function, :arguments).to_json }
       elsif message[:result].present?
         { role: "function", name: message[:name], content: message[:result] }
       else

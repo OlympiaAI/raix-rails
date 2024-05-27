@@ -32,7 +32,21 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TBD. For now, please refer to specs for guidance.
+```ruby
+class MeaningOfLife
+  include Raix::ChatCompletion
+
+  def initialize
+    self.model = "meta-llama/llama-3-8b-instruct:free"
+    transcript << { user: "What is the meaning of life?" }
+  end
+end
+
+>> MeaningOfLife.new.chat_completion
+=> "The meaning of life is a question that has puzzled philosophers, scientists, and thinkers for centuries.
+There is no one definitive answer, as it is a deeply personal and subjective question that can vary..."
+```
+
 
 ## Development
 
