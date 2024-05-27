@@ -97,6 +97,13 @@ module Raix
       super
     end
 
+    # Stops the looping of chat completion after function calls.
+    # Useful for manually halting processing in workflow components
+    # that do not require a final text response to an end user.
+    def stop_looping!
+      self.loop = false
+    end
+
     def tools
       self.class.functions.map { |function| { type: "function", function: } }
     end

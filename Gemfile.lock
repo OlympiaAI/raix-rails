@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    raix-rails (0.2.0)
+    raix-rails (0.3.0)
       activesupport (>= 6.0)
       open_router (~> 0.2)
 
