@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require_relative "raix/rails/version"
+require_relative "raix/rails/engine"
 require_relative "raix/chat_completion"
 require_relative "raix/function_dispatch"
 require_relative "raix/prompt_declarations"
-require "raix/history"
+require_relative "raix/history"
 
 # The Raix module provides configuration options for the Raix gem.
 module Raix

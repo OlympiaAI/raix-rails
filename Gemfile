@@ -21,4 +21,7 @@ group :development do
   gem "solargraph-rails", "~> 0.2.0.pre"
   gem "sorbet"
   gem "tapioca", require: false
+  gem 'sqlite3', '~> 1.4'
+  gem 'activerecord', '~> 7.1.3'
+  gem 'database_cleaner-active_record'
 end

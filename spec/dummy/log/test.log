@@ -1,0 +1,748 @@
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2024-06-25 21:21:23.660875', '2024-06-25 21:21:23.660877') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDummyModels (20240625211053)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "dummy_models" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240625211053') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA table_info(raix_chat_messages)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (2.0ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:25:39.538744"], ["updated_at", "2024-06-25 21:25:39.538744"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:25:39.571700"], ["updated_at", "2024-06-25 21:25:39.571700"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:25:39.572643"], ["updated_at", "2024-06-25 21:25:39.572643"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA table_info(raix_chat_messages)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.7ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:28:53.031394"], ["updated_at", "2024-06-25 21:28:53.031394"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:28:53.061037"], ["updated_at", "2024-06-25 21:28:53.061037"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:28:53.061979"], ["updated_at", "2024-06-25 21:28:53.061979"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "dummy_models"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "dummy_models" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "raix_chat_messages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "raix_chat_messages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "messageable_type" varchar NOT NULL, "messageable_id" integer NOT NULL, "role" varchar NOT NULL, "content" text NOT NULL, "tokens" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_raix_chat_messages_on_messageable" ON "raix_chat_messages" ("messageable_type", "messageable_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240625213614)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240625211053);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2024-06-25 21:36:39.501413', '2024-06-25 21:36:39.501416') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'cbcd6414a563bc396510e582a3534a22f2181841', '2024-06-25 21:36:39.501748', '2024-06-25 21:36:39.501749') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA table_info(raix_chat_messages)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:36:39.563029"], ["updated_at", "2024-06-25 21:36:39.563029"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.653066"], ["updated_at", "2024-06-25 21:36:39.653066"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.653963"], ["updated_at", "2024-06-25 21:36:39.653963"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.654392"], ["updated_at", "2024-06-25 21:36:39.654392"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.1ms)[0m  [1m[34mSELECT role, content, tokens FROM (SELECT role, content, tokens, created_at, messageable_type, messageable_id, SUM(tokens) OVER (ORDER BY created_at DESC) AS cumulative_tokens FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = 1 AND "raix_chat_messages"."messageable_type" = 'DummyModel' ORDER BY "raix_chat_messages"."created_at" DESC) AS subquery WHERE (cumulative_tokens <= 20) AND "raix_chat_messages"."messageable_type" = ? AND "raix_chat_messages"."messageable_id" = ? ORDER BY created_at ASC[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:36:39.655809"], ["updated_at", "2024-06-25 21:36:39.655809"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.656287"], ["updated_at", "2024-06-25 21:36:39.656287"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.656819"], ["updated_at", "2024-06-25 21:36:39.656819"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.657176"], ["updated_at", "2024-06-25 21:36:39.657176"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.1ms)[0m  [1m[34mSELECT role, content, tokens FROM (SELECT role, content, tokens, created_at, messageable_type, messageable_id, SUM(tokens) OVER (ORDER BY created_at DESC) AS cumulative_tokens FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = 1 AND "raix_chat_messages"."messageable_type" = 'DummyModel' ORDER BY "raix_chat_messages"."created_at" DESC) AS subquery WHERE (cumulative_tokens <= 30) AND "raix_chat_messages"."messageable_type" = ? AND "raix_chat_messages"."messageable_id" = ? ORDER BY created_at ASC[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:36:39.657973"], ["updated_at", "2024-06-25 21:36:39.657973"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.658356"], ["updated_at", "2024-06-25 21:36:39.658356"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.658811"], ["updated_at", "2024-06-25 21:36:39.658811"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:36:39.659144"], ["updated_at", "2024-06-25 21:36:39.659144"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens FROM (SELECT role, content, tokens, created_at, messageable_type, messageable_id, SUM(tokens) OVER (ORDER BY created_at DESC) AS cumulative_tokens FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = 1 AND "raix_chat_messages"."messageable_type" = 'DummyModel' ORDER BY "raix_chat_messages"."created_at" DESC) AS subquery WHERE (cumulative_tokens <= 0) AND "raix_chat_messages"."messageable_type" = ? AND "raix_chat_messages"."messageable_id" = ? ORDER BY created_at ASC[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.6ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:39:20.617923"], ["updated_at", "2024-06-25 21:39:20.617923"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.709784"], ["updated_at", "2024-06-25 21:39:20.709784"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.710710"], ["updated_at", "2024-06-25 21:39:20.710710"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.711505"], ["updated_at", "2024-06-25 21:39:20.711505"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.1ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" DESC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:39:20.723356"], ["updated_at", "2024-06-25 21:39:20.723356"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.724034"], ["updated_at", "2024-06-25 21:39:20.724034"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.724471"], ["updated_at", "2024-06-25 21:39:20.724471"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.724865"], ["updated_at", "2024-06-25 21:39:20.724865"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" DESC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:39:20.726841"], ["updated_at", "2024-06-25 21:39:20.726841"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.727321"], ["updated_at", "2024-06-25 21:39:20.727321"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.727691"], ["updated_at", "2024-06-25 21:39:20.727691"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:39:20.728077"], ["updated_at", "2024-06-25 21:39:20.728077"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" DESC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.6ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:40:25.168629"], ["updated_at", "2024-06-25 21:40:25.168629"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.269708"], ["updated_at", "2024-06-25 21:40:25.269708"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.271148"], ["updated_at", "2024-06-25 21:40:25.271148"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.272047"], ["updated_at", "2024-06-25 21:40:25.272047"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.1ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.3ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:40:25.282604"], ["updated_at", "2024-06-25 21:40:25.282604"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.283703"], ["updated_at", "2024-06-25 21:40:25.283703"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.284373"], ["updated_at", "2024-06-25 21:40:25.284373"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.284944"], ["updated_at", "2024-06-25 21:40:25.284944"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.1ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:40:25.286278"], ["updated_at", "2024-06-25 21:40:25.286278"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.286785"], ["updated_at", "2024-06-25 21:40:25.286785"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.287220"], ["updated_at", "2024-06-25 21:40:25.287220"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:40:25.287852"], ["updated_at", "2024-06-25 21:40:25.287852"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.2ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:41:30.272272"], ["updated_at", "2024-06-25 21:41:30.272272"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.364334"], ["updated_at", "2024-06-25 21:41:30.364334"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.365107"], ["updated_at", "2024-06-25 21:41:30.365107"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.365659"], ["updated_at", "2024-06-25 21:41:30.365659"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.1ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:41:30.374480"], ["updated_at", "2024-06-25 21:41:30.374480"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.375029"], ["updated_at", "2024-06-25 21:41:30.375029"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.375431"], ["updated_at", "2024-06-25 21:41:30.375431"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.375964"], ["updated_at", "2024-06-25 21:41:30.375964"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:41:30.376858"], ["updated_at", "2024-06-25 21:41:30.376858"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.377312"], ["updated_at", "2024-06-25 21:41:30.377312"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.377689"], ["updated_at", "2024-06-25 21:41:30.377689"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:41:30.378083"], ["updated_at", "2024-06-25 21:41:30.378083"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.8ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:42:35.146749"], ["updated_at", "2024-06-25 21:42:35.146749"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.249374"], ["updated_at", "2024-06-25 21:42:35.249374"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.250640"], ["updated_at", "2024-06-25 21:42:35.250640"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.251506"], ["updated_at", "2024-06-25 21:42:35.251506"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:42:35.261183"], ["updated_at", "2024-06-25 21:42:35.261183"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.261893"], ["updated_at", "2024-06-25 21:42:35.261893"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.262319"], ["updated_at", "2024-06-25 21:42:35.262319"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.262810"], ["updated_at", "2024-06-25 21:42:35.262810"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:42:35.263688"], ["updated_at", "2024-06-25 21:42:35.263688"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.264223"], ["updated_at", "2024-06-25 21:42:35.264223"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.264592"], ["updated_at", "2024-06-25 21:42:35.264592"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:42:35.264951"], ["updated_at", "2024-06-25 21:42:35.264951"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.5ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:45:50.808878"], ["updated_at", "2024-06-25 21:45:50.808878"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.905227"], ["updated_at", "2024-06-25 21:45:50.905227"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.906172"], ["updated_at", "2024-06-25 21:45:50.906172"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.906827"], ["updated_at", "2024-06-25 21:45:50.906827"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:45:50.915910"], ["updated_at", "2024-06-25 21:45:50.915910"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.916554"], ["updated_at", "2024-06-25 21:45:50.916554"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.917000"], ["updated_at", "2024-06-25 21:45:50.917000"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.917525"], ["updated_at", "2024-06-25 21:45:50.917525"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:45:50.919345"], ["updated_at", "2024-06-25 21:45:50.919345"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.919875"], ["updated_at", "2024-06-25 21:45:50.919875"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.920271"], ["updated_at", "2024-06-25 21:45:50.920271"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:45:50.920642"], ["updated_at", "2024-06-25 21:45:50.920642"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (2.4ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:46:41.946375"], ["updated_at", "2024-06-25 21:46:41.946375"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.058747"], ["updated_at", "2024-06-25 21:46:42.058747"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.059624"], ["updated_at", "2024-06-25 21:46:42.059624"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.060255"], ["updated_at", "2024-06-25 21:46:42.060255"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:46:42.068985"], ["updated_at", "2024-06-25 21:46:42.068985"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.069754"], ["updated_at", "2024-06-25 21:46:42.069754"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.070164"], ["updated_at", "2024-06-25 21:46:42.070164"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.070544"], ["updated_at", "2024-06-25 21:46:42.070544"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:46:42.071364"], ["updated_at", "2024-06-25 21:46:42.071364"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.071861"], ["updated_at", "2024-06-25 21:46:42.071861"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.072234"], ["updated_at", "2024-06-25 21:46:42.072234"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:46:42.072613"], ["updated_at", "2024-06-25 21:46:42.072613"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.6ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:47:21.784822"], ["updated_at", "2024-06-25 21:47:21.784822"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.896913"], ["updated_at", "2024-06-25 21:47:21.896913"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.898024"], ["updated_at", "2024-06-25 21:47:21.898024"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.898854"], ["updated_at", "2024-06-25 21:47:21.898854"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:47:21.909619"], ["updated_at", "2024-06-25 21:47:21.909619"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.910421"], ["updated_at", "2024-06-25 21:47:21.910421"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.911093"], ["updated_at", "2024-06-25 21:47:21.911093"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.911499"], ["updated_at", "2024-06-25 21:47:21.911499"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:47:21.912513"], ["updated_at", "2024-06-25 21:47:21.912513"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.913095"], ["updated_at", "2024-06-25 21:47:21.913095"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.913518"], ["updated_at", "2024-06-25 21:47:21.913518"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:47:21.913959"], ["updated_at", "2024-06-25 21:47:21.913959"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.6ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:48:30.823554"], ["updated_at", "2024-06-25 21:48:30.823554"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.917561"], ["updated_at", "2024-06-25 21:48:30.917561"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.918422"], ["updated_at", "2024-06-25 21:48:30.918422"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.919283"], ["updated_at", "2024-06-25 21:48:30.919283"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:48:30.920437"], ["updated_at", "2024-06-25 21:48:30.920437"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.920952"], ["updated_at", "2024-06-25 21:48:30.920952"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.921447"], ["updated_at", "2024-06-25 21:48:30.921447"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.921798"], ["updated_at", "2024-06-25 21:48:30.921798"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:48:30.922527"], ["updated_at", "2024-06-25 21:48:30.922527"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.923122"], ["updated_at", "2024-06-25 21:48:30.923122"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.923470"], ["updated_at", "2024-06-25 21:48:30.923470"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:48:30.923843"], ["updated_at", "2024-06-25 21:48:30.923843"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.6ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:49:03.779888"], ["updated_at", "2024-06-25 21:49:03.779888"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.883499"], ["updated_at", "2024-06-25 21:49:03.883499"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.884454"], ["updated_at", "2024-06-25 21:49:03.884454"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.885223"], ["updated_at", "2024-06-25 21:49:03.885223"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:49:03.886744"], ["updated_at", "2024-06-25 21:49:03.886744"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.887265"], ["updated_at", "2024-06-25 21:49:03.887265"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.887640"], ["updated_at", "2024-06-25 21:49:03.887640"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.888000"], ["updated_at", "2024-06-25 21:49:03.888000"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:49:03.888864"], ["updated_at", "2024-06-25 21:49:03.888864"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.889298"], ["updated_at", "2024-06-25 21:49:03.889298"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.889650"], ["updated_at", "2024-06-25 21:49:03.889650"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:03.889989"], ["updated_at", "2024-06-25 21:49:03.889989"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.7ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:49:30.013396"], ["updated_at", "2024-06-25 21:49:30.013396"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.096685"], ["updated_at", "2024-06-25 21:49:30.096685"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.097627"], ["updated_at", "2024-06-25 21:49:30.097627"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.098473"], ["updated_at", "2024-06-25 21:49:30.098473"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:49:30.099688"], ["updated_at", "2024-06-25 21:49:30.099688"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.100227"], ["updated_at", "2024-06-25 21:49:30.100227"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.100608"], ["updated_at", "2024-06-25 21:49:30.100608"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.100957"], ["updated_at", "2024-06-25 21:49:30.100957"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:49:30.101670"], ["updated_at", "2024-06-25 21:49:30.101670"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.102092"], ["updated_at", "2024-06-25 21:49:30.102092"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.102445"], ["updated_at", "2024-06-25 21:49:30.102445"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:49:30.102776"], ["updated_at", "2024-06-25 21:49:30.102776"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.5ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:50:08.747890"], ["updated_at", "2024-06-25 21:50:08.747890"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.825855"], ["updated_at", "2024-06-25 21:50:08.825855"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (1.3ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.827213"], ["updated_at", "2024-06-25 21:50:08.827213"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.828989"], ["updated_at", "2024-06-25 21:50:08.828989"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.1ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:50:08.830570"], ["updated_at", "2024-06-25 21:50:08.830570"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.831254"], ["updated_at", "2024-06-25 21:50:08.831254"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.831735"], ["updated_at", "2024-06-25 21:50:08.831735"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.832134"], ["updated_at", "2024-06-25 21:50:08.832134"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyModel Create (0.1ms)[0m  [1m[32mINSERT INTO "dummy_models" ("created_at", "updated_at") VALUES (?, ?) RETURNING "id"[0m  [["created_at", "2024-06-25 21:50:08.832938"], ["updated_at", "2024-06-25 21:50:08.832938"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "Hello"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.833400"], ["updated_at", "2024-06-25 21:50:08.833400"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "assistant"], ["content", "Hi there"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.833748"], ["updated_at", "2024-06-25 21:50:08.833748"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "raix_chat_messages" ("messageable_type", "messageable_id", "role", "content", "tokens", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["messageable_type", "DummyModel"], ["messageable_id", 1], ["role", "user"], ["content", "How are you?"], ["tokens", "[FILTERED]"], ["created_at", "2024-06-25 21:50:08.834108"], ["updated_at", "2024-06-25 21:50:08.834108"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRaix::ChatMessage Load (0.0ms)[0m  [1m[34mSELECT role, content, tokens, created_at FROM "raix_chat_messages" WHERE "raix_chat_messages"."messageable_id" = ? AND "raix_chat_messages"."messageable_type" = ? ORDER BY "raix_chat_messages"."id" ASC, "raix_chat_messages"."created_at" ASC[0m  [["messageable_id", 1], ["messageable_type", "DummyModel"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m

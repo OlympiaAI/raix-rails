@@ -5,9 +5,13 @@ require "faraday"
 require "faraday/retry"
 require "open_router"
 require "pry"
+require 'active_record'
+require 'sqlite3'
+require "rails_helper"
 require "raix"
 
 Dotenv.load
+require File.expand_path("../dummy/config/environment", __FILE__)
 
 retry_options = {
   max: 2,
@@ -35,7 +39,10 @@ Raix.configure do |config|
   end
 end
 
+ActiveRecord::Migration.maintain_test_schema!
+
 RSpec.configure do |config|
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
 

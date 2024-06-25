@@ -3,7 +3,9 @@ module Raix
     extend ActiveSupport::Concern
 
     included do
-      has_many :chat_messages, as: :messageable, dependent: :destroy, class_name: 'Raix::ChatMessage'
+      has_many :chat_messages, -> { order(id: :asc) }, 
+               as: :messageable, 
+               class_name: 'Raix::ChatMessage'
     end
 
     class_methods do
@@ -23,19 +25,23 @@ module Raix
     private
 
     def load_transcript_from_history
-      messages = chat_messages.order(created_at: :desc)
+      max_tokens = self.class.get_history_max_tokens
+    
+      messages = chat_messages
+        .select('role, content, tokens, created_at')
+        .order(created_at: :asc)
+    
       total_tokens = 0
-      transcript = []
-
-      messages.each do |msg|
-        if total_tokens + msg.tokens > self.class.get_history_max_tokens
-          break
-        end
-        total_tokens += msg.tokens
-        transcript.unshift({ role: msg.role, content: msg.content })
+      result = []
+    
+      messages.reverse.each do |msg|
+        new_total = total_tokens + msg.tokens
+        break if new_total > max_tokens
+        result << { role: msg.role, content: msg.content }
+        total_tokens = new_total
       end
-
-      transcript
+    
+      result.reverse
     end
   end
 end
