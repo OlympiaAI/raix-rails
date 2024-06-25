@@ -30,6 +30,9 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "activesupport", ">= 6.0"
   spec.add_dependency "open_router", "~> 0.2"
+  spec.add_dependency "tiktoken_ruby", "~> 0.0.9"
+  spec.add_dependency "rails"
+  spec.add_development_dependency "rspec-rails"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
