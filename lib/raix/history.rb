@@ -26,22 +26,14 @@ module Raix
 
     def load_transcript_from_history
       max_tokens = self.class.get_history_max_tokens
-    
-      messages = chat_messages
-        .select('role, content, tokens, created_at')
+      
+      return [] if max_tokens == 0
+
+      chat_messages
+        .select('role, content')
+        .where("id >= (SELECT COALESCE(MIN(id), 0) FROM (SELECT id, SUM(tokens) OVER (ORDER BY created_at DESC) AS cumulative_tokens FROM raix_chat_messages WHERE messageable_type = ? AND messageable_id = ?) AS subquery WHERE cumulative_tokens <= ?)", self.class.name, self.id, max_tokens)
         .order(created_at: :asc)
-    
-      total_tokens = 0
-      result = []
-    
-      messages.reverse.each do |msg|
-        new_total = total_tokens + msg.tokens
-        break if new_total > max_tokens
-        result << { role: msg.role, content: msg.content }
-        total_tokens = new_total
-      end
-    
-      result.reverse
+        .map { |msg| { role: msg.role, content: msg.content } }
     end
   end
 end
